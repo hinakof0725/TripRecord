@@ -1,0 +1,10 @@
+<div class="page-container">
+  <h1>予定を編集する</h1>
+
+  <%= render "form",
+             tweet: @tweet,
+             travel_day: @travel_day,
+             schedule: @schedule %>
+
+  <%= link_to "しおりに戻る", tweet_path(@tweet) %>
+</div>

@@ -1,0 +1,24 @@
+<div class="page-container">
+  <h1>
+    <%= @travel_day.day_number %>日目の情報を編集
+  </h1>
+
+  <p><%= @travel_day.date.strftime("%Y年%m月%d日") %></p>
+
+  <%= form_with model: [@tweet, @travel_day] do |f| %>
+    <div class="field">
+      <%= f.label :day_title, "この日のタイトル" %>
+      <%= f.text_field :day_title,
+                       placeholder: "京都の定番スポットを巡る日" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :memo, "この日のメモ" %>
+      <%= f.text_area :memo, rows: 5 %>
+    </div>
+
+    <%= f.submit "保存する", class: "button" %>
+  <% end %>
+
+  <%= link_to "しおりに戻る", tweet_path(@tweet) %>
+</div>

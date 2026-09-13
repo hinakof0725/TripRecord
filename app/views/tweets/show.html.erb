@@ -1,0 +1,218 @@
+<div class="page-container">
+  <div class="no-print">
+    <%= link_to "マイページに戻る", mypage_path %>
+
+    <%= link_to "旅行情報を編集する",
+                edit_tweet_path(@tweet),
+                class: "button secondary-button" %>
+
+    <button onclick="window.print()" class="button">
+      PDFとして保存する
+    </button>
+  </div>
+
+  <div class="shiori-cover">
+    <p>TRAVEL PLAN</p>
+
+    <h1><%= @tweet.title %></h1>
+
+    <p>
+      <%= @tweet.s_date.strftime("%Y年%m月%d日") %>
+      ～
+      <%= @tweet.f_date.strftime("%Y年%m月%d日") %>
+    </p>
+
+    <p><%= simple_format(@tweet.about) %></p>
+  </div>
+
+  <% if @tweet.owned_by?(current_user) %>
+    <section class="collaboration-panel no-print">
+      <div class="collaboration-heading">
+        <div>
+          <p class="collaboration-label">
+            COLLABORATORS
+          </p>
+
+          <h2>共同編集者</h2>
+        </div>
+
+        <span class="collaboration-count">
+          <%= @collaborations.count %>人
+        </span>
+      </div>
+
+      <p class="collaboration-description">
+        登録済みユーザーのメールアドレスを入力してください。
+      </p>
+
+      <%= form_with url: tweet_collaborations_path(@tweet),
+                    method: :post,
+                    class: "collaboration-form" do |f| %>
+
+        <%= f.email_field :email,
+                          placeholder: "friend@example.com",
+                          required: true %>
+
+        <%= f.submit "共同編集者に追加",
+                    class: "button" %>
+      <% end %>
+
+      <div class="collaborator-list">
+        <% @collaborations.each do |collaboration| %>
+          <div class="collaborator-item">
+            <div>
+              <p class="collaborator-email">
+                <%= collaboration.user.email %>
+              </p>
+
+              <p class="collaborator-role">
+                共同編集者
+              </p>
+            </div>
+
+            <%= button_to "解除",
+                          tweet_collaboration_path(
+                            @tweet,
+                            collaboration
+                          ),
+                          method: :delete,
+                          data: {
+                            turbo_confirm:
+                              "このユーザーを共同編集者から解除しますか？"
+                          },
+                          class: "remove-collaborator-button" %>
+          </div>
+        <% end %>
+
+        <% if @collaborations.empty? %>
+          <p class="no-collaborators">
+            共同編集者はまだ登録されていません。
+          </p>
+        <% end %>
+      </div>
+    </section>
+
+  <% else %>
+    <div class="shared-information no-print">
+      <p>
+        この旅行には共同編集者として参加しています。
+      </p>
+
+      <p>
+        オーナー：<%= @tweet.user.email %>
+      </p>
+    </div>
+
+  <% end %>
+
+  <% @travel_days.each do |travel_day| %>
+    <section class="travel-day">
+      <div class="day-header">
+        <h2>
+          DAY <%= travel_day.day_number %>
+          ／
+          <%= travel_day.date.strftime("%m月%d日") %>
+        </h2>
+
+        <% if travel_day.day_title.present? %>
+          <h3><%= travel_day.day_title %></h3>
+        <% end %>
+
+        <% if travel_day.memo.present? %>
+          <%= simple_format(travel_day.memo) %>
+        <% end %>
+
+        <div class="no-print">
+          <%= link_to "この日の情報を編集",
+                      edit_tweet_travel_day_path(@tweet, travel_day) %>
+
+          <%= link_to "予定を追加",
+                      new_tweet_travel_day_schedule_path(
+                        @tweet,
+                        travel_day
+                      ),
+                      class: "button" %>
+        </div>
+      </div>
+
+      <div class="schedule-list">
+        <% travel_day.schedules.sort_by(&:start_time).each do |schedule| %>
+          <article class="schedule-row
+            <%= "with-image" if schedule.image.attached? %>
+          ">
+
+              <div class="schedule-time">
+                <%= schedule.start_time.strftime("%H:%M") %>
+
+                <% if schedule.end_time.present? %>
+                  ～
+                  <%= schedule.end_time.strftime("%H:%M") %>
+                <% end %>
+              </div>
+
+              <div class="schedule-main">
+                <div class="schedule-content">
+                  <h3><%= schedule.activity %></h3>
+
+                  <p>📍 <%= schedule.place %></p>
+
+                  <% if schedule.memo.present? %>
+                      <%= simple_format(schedule.memo) %>
+                  <% end %>
+
+                  <div class="no-print">
+                    <%= link_to "編集",
+                                edit_tweet_travel_day_schedule_path(
+                                  @tweet,
+                                  travel_day,
+                                  schedule
+                                ) %>
+
+                    <%= button_to "削除",
+                                  tweet_travel_day_schedule_path(
+                                    @tweet,
+                                    travel_day,
+                                    schedule
+                                  ),
+                                  method: :delete,
+                                  data: {
+                                    turbo_confirm: "この予定を削除しますか？"
+                                  } %>
+                  </div>
+                </div>
+
+                <% if schedule.image.attached? %>
+                  <div class="schedule-photo">
+                    <%= cl_image_tag schedule.image.key,
+                                    width: 700,
+                                    height: 500,
+                                    crop: :fill,
+                                    gravity: :auto,
+                                    fetch_format: :auto,
+                                    quality: :auto,
+                                    class: "schedule-image" %>
+                  </div>
+                <% end %>
+              </div>
+          </article>
+        <% end %>
+
+        <% if travel_day.schedules.empty? %>
+          <p>この日の予定はまだありません。</p>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if @tweet.owned_by?(current_user) %>
+    <div class="no-print">
+      <%= button_to "旅行記録を削除する",
+                    tweet_path(@tweet),
+                    method: :delete,
+                    data: {
+                      turbo_confirm: "旅行記録を削除しますか？"
+                    },
+                    class: "delete-button" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,27 @@
+<h1>Home#top</h1>
+<p>Find me in app/views/home/top.html.erb</p>
+
+<div class="top-page">
+  <h1>Travel Blog</h1>
+
+  <p>
+    旅行の思い出やスケジュールを、しおり形式で記録できるアプリです。
+  </p>
+
+  <% if user_signed_in? %>
+    <%= link_to "マイページへ", mypage_path, class: "button" %>
+
+    <%= button_to "ログアウト",
+                  destroy_user_session_path,
+                  method: :delete,
+                  class: "button secondary-button" %>
+  <% else %>
+    <%= link_to "新規登録",
+                new_user_registration_path,
+                class: "button" %>
+
+    <%= link_to "ログイン",
+                new_user_session_path,
+                class: "button secondary-button" %>
+  <% end %>
+</div>

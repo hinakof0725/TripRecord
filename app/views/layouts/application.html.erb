@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Triprecord" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="site-header no-print">
+      <%= link_to "Travel Blog", root_path, class: "logo" %>
+
+      <nav>
+        <% if user_signed_in? %>
+          <%= link_to "マイページ", mypage_path %>
+          <%= link_to "旅行を投稿", new_tweet_path %>
+
+          <%= button_to "ログアウト",
+                        destroy_user_session_path,
+                        method: :delete %>
+        <% else %>
+          <%= link_to "新規登録", new_user_registration_path %>
+          <%= link_to "ログイン", new_user_session_path %>
+        <% end %>
+      </nav>
+    </header>
+
+    <% if notice.present? %>
+      <p class="notice no-print"><%= notice %></p>
+    <% end %>
+
+    <% if alert.present? %>
+      <p class="alert no-print"><%= alert %></p>
+    <% end %>
+
+    <%= yield %>
+  </body>
+
+</html>

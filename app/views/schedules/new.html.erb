@@ -1,0 +1,14 @@
+<div class="page-container">
+  <h1>
+    <%= @travel_day.day_number %>日目の予定を追加
+  </h1>
+
+  <p><%= @travel_day.date.strftime("%Y年%m月%d日") %></p>
+
+  <%= render "form",
+             tweet: @tweet,
+             travel_day: @travel_day,
+             schedule: @schedule %>
+
+  <%= link_to "しおりに戻る", tweet_path(@tweet) %>
+</div>

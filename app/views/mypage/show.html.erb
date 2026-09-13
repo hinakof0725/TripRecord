@@ -1,0 +1,124 @@
+<div class="page-container">
+  <h1>マイページ</h1>
+
+  <p><%= current_user.email %>さんの旅行記録</p>
+
+  <%= link_to "新しい旅行を投稿する",
+              new_tweet_path,
+              class: "button" %>
+
+  <div class="tweet-list">
+    <% @tweets.each do |tweet| %>
+      <article class="tweet-card">
+      <%= link_to tweet_path(tweet), class: "tweet-card-link" do %>
+        <div class="thumbnail-area">
+          <% if tweet.thumbnail.attached? %>
+            <%= image_tag tweet.thumbnail,
+              width: 700,
+              height: 450,
+              class: "tweet-thumbnail",
+              alt: "#{tweet.title}のサムネイル画像" %>
+          <% else %>
+            <div class="no-thumbnail">
+              <span>NO IMAGE</span>
+            </div>
+          <% end %>
+
+
+      <div class="thumbnail-overlay">
+        <h2><%= tweet.title %></h2>
+
+        <p>
+          <%= tweet.s_date.strftime("%Y年%m月%d日") %>
+          ～
+          <%= tweet.f_date.strftime("%Y年%m月%d日") %>
+        </p>
+
+      </div>
+    </div>
+  <% end %>
+
+      <div class="tweet-card-body">
+
+        <% if tweet.about.present? %>
+          <p class="tweet-memo">
+            <%= truncate(tweet.memo, length: 80) %>
+          </p>
+        <% end %>
+
+        <%= link_to "しおりを見る",
+                    tweet_path(tweet),
+                    class: "button secondary-button" %>
+      </div>
+      </article>
+    <% end %>
+
+    <% if @tweets.empty? %>
+      <p>旅行の記録はまだありません。</p>
+    <% end %>
+  </div>
+</div>＿
+
+<section class="shared-trips">
+  <div class="section-heading">
+    <p class="mypage-subtitle">SHARED TRAVEL RECORDS</p>
+    <h2>共同編集中の旅行</h2>
+  </div>
+
+  <div class="tweet-list">
+    <% @shared_tweets.each do |tweet| %>
+      <article class="tweet-card shared-tweet-card">
+        <%= link_to tweet_path(tweet),
+                    class: "tweet-card-link" do %>
+
+          <div class="thumbnail-area">
+            <% if tweet.thumbnail.attached? %>
+              <%= cl_image_tag tweet.thumbnail.key,
+                               width: 700,
+                               height: 450,
+                               crop: :fill,
+                               gravity: :auto,
+                               fetch_format: :auto,
+                               quality: :auto,
+                               class: "tweet-thumbnail" %>
+            <% else %>
+              <div class="no-thumbnail">
+                <span>NO IMAGE</span>
+              </div>
+            <% end %>
+
+            <span class="shared-badge">
+              共同編集中
+            </span>
+
+            <div class="thumbnail-overlay">
+              <h2><%= tweet.title %></h2>
+
+              <p>
+                <%= tweet.s_date.strftime("%Y.%m.%d") %>
+                ～
+                <%= tweet.f_date.strftime("%Y.%m.%d") %>
+              </p>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="tweet-card-body">
+          <p>
+            オーナー：<%= tweet.user.email %>
+          </p>
+
+          <%= link_to "しおりを編集する",
+                      tweet_path(tweet),
+                      class: "button" %>
+        </div>
+      </article>
+    <% end %>
+
+    <% if @shared_tweets.empty? %>
+      <div class="empty-message">
+        <p>共同編集中の旅行はありません。</p>
+      </div>
+    <% end %>
+  </div>
+</section>
