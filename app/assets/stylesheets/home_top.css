@@ -1,0 +1,680 @@
+/* =========================================
+   Home Top Page
+   ========================================= */
+
+.home-top-page {
+  min-height: 100vh;
+  background: #f5f3ee;
+  color: #30383b;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  box-sizing: border-box;
+}
+
+.home-top-page *,
+.home-top-page *::before,
+.home-top-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   Main
+   ========================================= */
+
+.home-top-page .home-top-main {
+  width: 100%;
+}
+
+
+/* =========================================
+   Hero Section
+   ========================================= */
+
+.home-top-page .hero-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
+  align-items: center;
+  gap: 70px;
+  width: min(1180px, calc(100% - 60px));
+  min-height: calc(100vh - 70px);
+  margin: 0 auto;
+  padding: 80px 0 100px;
+}
+
+
+/* =========================================
+   Hero Content
+   ========================================= */
+
+.home-top-page .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.home-top-page .hero-eyebrow,
+.home-top-page .section-eyebrow {
+  margin: 0 0 15px;
+  color: #7d969b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.home-top-page .hero-title {
+  margin: 0;
+  color: #30383b;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: 0.03em;
+}
+
+.home-top-page .hero-description {
+  margin: 28px 0 0;
+  color: #6f7778;
+  font-size: 14px;
+  line-height: 2;
+}
+
+
+/* =========================================
+   Hero Actions
+   ========================================= */
+
+.home-top-page .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.home-top-page .hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 145px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.home-top-page .hero-button:hover {
+  transform: translateY(-2px);
+}
+
+.home-top-page .hero-button.primary-button {
+  border: 1px solid #6f898e;
+  background: #6f898e;
+  color: #ffffff;
+}
+
+.home-top-page .hero-button.primary-button:hover {
+  background: #5e777c;
+  border-color: #5e777c;
+}
+
+.home-top-page .hero-button.secondary-button {
+  border: 1px solid #c9c8c1;
+  background: transparent;
+  color: #5d686a;
+}
+
+.home-top-page .hero-button.secondary-button:hover {
+  background: #ffffff;
+  border-color: #aeb8b7;
+}
+
+
+/* =========================================
+   Hero Visual
+   ========================================= */
+
+.home-top-page .hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: 520px;
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   Hero Cards
+   ========================================= */
+
+.home-top-page .hero-card {
+  position: absolute;
+  border-radius: 8px;
+}
+
+.home-top-page .hero-card-back {
+  top: 65px;
+  right: 5px;
+  width: 75%;
+  height: 75%;
+  overflow: hidden;
+  background: #d9e4e2;
+  transform: rotate(7deg);
+}
+
+.home-top-page .hero-card-pattern {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      circle at 25% 30%,
+      rgba(255, 255, 255, 0.7) 0 4%,
+      transparent 4.5%
+    ),
+    radial-gradient(
+      circle at 70% 65%,
+      rgba(255, 255, 255, 0.45) 0 5%,
+      transparent 5.5%
+    ),
+    linear-gradient(
+      145deg,
+      #cbdcd9,
+      #e8e7dd
+    );
+}
+
+.home-top-page .hero-card-main {
+  top: 35px;
+  left: 30px;
+  width: 76%;
+  min-height: 410px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(52, 63, 63, 0.15);
+  transform: rotate(-4deg);
+}
+
+.home-top-page .hero-card-image {
+  position: relative;
+  width: 100%;
+  height: 245px;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      140deg,
+      #91aaa7 0%,
+      #b9c8c0 42%,
+      #ddd7c9 100%
+    );
+}
+
+.home-top-page .hero-card-image::before {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  right: -35px;
+  top: -45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.home-top-page .hero-card-image::after {
+  content: "";
+  position: absolute;
+  left: -30px;
+  bottom: -60px;
+  width: 250px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(66, 86, 82, 0.25);
+  transform: rotate(-8deg);
+}
+
+.home-top-page .hero-card-image-content {
+  position: absolute;
+  left: 25px;
+  bottom: 22px;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+}
+
+.home-top-page .hero-card-info {
+  padding: 25px 28px 28px;
+}
+
+.home-top-page .hero-card-label {
+  margin: 0 0 8px;
+  color: #a08c72;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.home-top-page .hero-card-info h2 {
+  margin: 0;
+  color: #3c4648;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.home-top-page .hero-card-small {
+  margin: 15px 0 0;
+  color: #8a9090;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================================
+   Decorative Elements
+   ========================================= */
+
+.home-top-page .hero-deco {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.home-top-page .hero-deco-one {
+  top: 20px;
+  right: 15px;
+  width: 14px;
+  height: 14px;
+  background: #a08c72;
+}
+
+.home-top-page .hero-deco-two {
+  bottom: 45px;
+  left: 5px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #9db0ae;
+}
+
+
+/* =========================================
+   Concept Section
+   ========================================= */
+
+.home-top-page .concept-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  width: min(1000px, calc(100% - 60px));
+  margin: 0 auto;
+  padding: 110px 0;
+  border-top: 1px solid #ddd9d0;
+}
+
+.home-top-page .concept-heading h2 {
+  margin: 0;
+  color: #394346;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.home-top-page .concept-text {
+  align-self: end;
+  max-width: 450px;
+}
+
+.home-top-page .concept-text p {
+  margin: 0 0 20px;
+  color: #737b7d;
+  font-size: 14px;
+  line-height: 2.1;
+}
+
+.home-top-page .concept-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   Feature Section
+   ========================================= */
+
+.home-top-page .feature-section {
+  width: min(1100px, calc(100% - 60px));
+  margin: 0 auto;
+  padding: 100px 0 120px;
+}
+
+.home-top-page .section-heading {
+  margin-bottom: 35px;
+}
+
+.home-top-page .section-heading h2 {
+  margin: 0;
+  color: #394346;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.home-top-page .feature-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.home-top-page .feature-card {
+  position: relative;
+  min-height: 280px;
+  padding: 32px 28px;
+  border: 1px solid #e1ded6;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.home-top-page .feature-number {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: #c3c7c3;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+}
+
+.home-top-page .feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  background: #e5ece9;
+  color: #6f898e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+}
+
+.home-top-page .feature-card h3 {
+  margin: 0 0 15px;
+  color: #404a4c;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.home-top-page .feature-card p {
+  margin: 0;
+  color: #7b8283;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+
+/* =========================================
+   CTA Section
+   ========================================= */
+
+.home-top-page .cta-section {
+  width: min(1100px, calc(100% - 60px));
+  margin: 0 auto 80px;
+  padding: 90px 30px;
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      135deg,
+      #dce7e4 0%,
+      #edf0e9 100%
+    );
+  text-align: center;
+}
+
+.home-top-page .cta-inner {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.home-top-page .cta-section h2 {
+  margin: 0;
+  color: #394548;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 45px);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.home-top-page .cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin-top: 30px;
+  padding: 12px 28px;
+  border: 1px solid #6f898e;
+  border-radius: 4px;
+  background: #6f898e;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.home-top-page .cta-button:hover {
+  background: #5e777c;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   Tablet
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .home-top-page .hero-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    min-height: auto;
+    padding: 65px 0 80px;
+  }
+
+  .home-top-page .hero-content {
+    max-width: 650px;
+  }
+
+  .home-top-page .hero-visual {
+    height: 470px;
+    max-width: 440px;
+  }
+
+  .home-top-page .concept-section {
+    gap: 50px;
+  }
+
+  .home-top-page .feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .home-top-page .feature-card {
+    min-height: auto;
+  }
+
+}
+
+
+/* =========================================
+   Smartphone
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .home-top-page .hero-section {
+    width: calc(100% - 30px);
+    padding: 45px 0 65px;
+  }
+
+  .home-top-page .hero-eyebrow,
+  .home-top-page .section-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.17em;
+  }
+
+  .home-top-page .hero-title {
+    font-size: 40px;
+    line-height: 1.25;
+  }
+
+  .home-top-page .hero-description {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.9;
+  }
+
+  .home-top-page .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .home-top-page .hero-button {
+    width: 100%;
+  }
+
+  .home-top-page .hero-visual {
+    height: 390px;
+    max-width: 350px;
+  }
+
+  .home-top-page .hero-card-main {
+    top: 25px;
+    left: 20px;
+    width: 78%;
+    min-height: 315px;
+  }
+
+  .home-top-page .hero-card-back {
+    top: 50px;
+    right: 0;
+    width: 74%;
+    height: 75%;
+  }
+
+  .home-top-page .hero-card-image {
+    height: 185px;
+  }
+
+  .home-top-page .hero-card-info {
+    padding: 18px 20px 20px;
+  }
+
+  .home-top-page .hero-card-info h2 {
+    font-size: 23px;
+  }
+
+  .home-top-page .concept-section {
+    display: block;
+    width: calc(100% - 30px);
+    padding: 75px 0;
+  }
+
+  .home-top-page .concept-heading h2 {
+    font-size: 29px;
+  }
+
+  .home-top-page .concept-text {
+    margin-top: 35px;
+  }
+
+  .home-top-page .concept-text p {
+    font-size: 12px;
+    line-height: 2;
+  }
+
+  .home-top-page .feature-section {
+    width: calc(100% - 30px);
+    padding: 70px 0 80px;
+  }
+
+  .home-top-page .section-heading h2 {
+    font-size: 29px;
+  }
+
+  .home-top-page .feature-list {
+    gap: 15px;
+  }
+
+  .home-top-page .feature-card {
+    padding: 27px 23px;
+  }
+
+  .home-top-page .feature-card h3 {
+    font-size: 16px;
+  }
+
+  .home-top-page .feature-card p {
+    font-size: 12px;
+  }
+
+  .home-top-page .cta-section {
+    width: calc(100% - 24px);
+    margin-bottom: 40px;
+    padding: 65px 20px;
+  }
+
+  .home-top-page .cta-section h2 {
+    font-size: 29px;
+  }
+
+  .home-top-page .cta-button {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================
+   Small Smartphone
+   ========================================= */
+
+@media (max-width: 380px) {
+
+  .home-top-page .hero-title {
+    font-size: 35px;
+  }
+
+  .home-top-page .hero-visual {
+    height: 350px;
+  }
+
+  .home-top-page .hero-card-main {
+    width: 80%;
+  }
+
+  .home-top-page .hero-card-info h2 {
+    font-size: 20px;
+  }
+
+}

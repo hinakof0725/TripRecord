@@ -1,27 +1,207 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="home-top-page">
 
-<div class="top-page">
-  <h1>Travel Blog</h1>
+  <main class="home-top-main">
 
-  <p>
-    旅行の思い出やスケジュールを、しおり形式で記録できるアプリです。
-  </p>
+    <section class="hero-section">
 
-  <% if user_signed_in? %>
-    <%= link_to "マイページへ", mypage_path, class: "button" %>
+      <div class="hero-content">
 
-    <%= button_to "ログアウト",
-                  destroy_user_session_path,
-                  method: :delete,
-                  class: "button secondary-button" %>
-  <% else %>
-    <%= link_to "新規登録",
-                new_user_registration_path,
-                class: "button" %>
+        <p class="hero-eyebrow">TRAVEL BLOG</p>
 
-    <%= link_to "ログイン",
-                new_user_session_path,
-                class: "button secondary-button" %>
-  <% end %>
+        <h1 class="hero-title">
+          旅の思い出を、<br>
+          ひとつのしおりに。
+        </h1>
+
+        <p class="hero-description">
+          旅行の思い出やスケジュールを、<br>
+          しおり形式で記録できるアプリです。
+        </p>
+
+        <div class="hero-actions">
+
+          <% if user_signed_in? %>
+
+            <%= link_to "マイページへ",
+                        mypage_path,
+                        class: "hero-button primary-button" %>
+
+            <%= button_to "ログアウト",
+                          destroy_user_session_path,
+                          method: :delete,
+                          class: "hero-button secondary-button" %>
+
+          <% else %>
+
+            <%= link_to "新規登録",
+                        new_user_registration_path,
+                        class: "hero-button primary-button" %>
+
+            <%= link_to "ログイン",
+                        new_user_session_path,
+                        class: "hero-button secondary-button" %>
+
+          <% end %>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-visual">
+
+        <div class="hero-card hero-card-back">
+          <div class="hero-card-pattern"></div>
+        </div>
+
+        <div class="hero-card hero-card-main">
+
+          <div class="hero-card-image">
+            <div class="hero-card-image-content">
+              <span>TRAVEL</span>
+            </div>
+          </div>
+
+          <div class="hero-card-info">
+            <p class="hero-card-label">MY JOURNEY</p>
+            <h2>Memories<br>to keep.</h2>
+            <p class="hero-card-small">Travel &amp; Memories</p>
+          </div>
+
+        </div>
+
+        <div class="hero-deco hero-deco-one"></div>
+        <div class="hero-deco hero-deco-two"></div>
+
+      </div>
+
+    </section>
+
+
+    <section class="concept-section">
+
+      <div class="concept-heading">
+        <p class="section-eyebrow">ABOUT TRAVEL BLOG</p>
+
+        <h2>
+          旅を計画する時間も、<br>
+          旅が終わったあとも。
+        </h2>
+      </div>
+
+
+      <div class="concept-text">
+
+        <p>
+          行きたい場所を決めて、予定を考えて、
+          実際に旅をして、思い出を振り返る。
+        </p>
+
+        <p>
+          Travel Blogは、そんな旅の時間を
+          ひとつの「しおり」にまとめて残せる場所です。
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="feature-section">
+
+      <div class="section-heading">
+
+        <div>
+          <p class="section-eyebrow">FEATURE</p>
+          <h2>旅を、もっと自由に。</h2>
+        </div>
+
+      </div>
+
+
+      <div class="feature-list">
+
+        <article class="feature-card">
+
+          <div class="feature-number">01</div>
+
+          <div class="feature-icon">✦</div>
+
+          <h3>旅の予定をまとめる</h3>
+
+          <p>
+            日程ごとに予定を整理して、
+            旅行中にすぐ確認できる旅のしおりを作れます。
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">02</div>
+
+          <div class="feature-icon">○</div>
+
+          <h3>思い出を写真と一緒に</h3>
+
+          <p>
+            旅行の写真やメモを残して、
+            あとから見返したくなる旅行記録を作れます。
+          </p>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">03</div>
+
+          <div class="feature-icon">＋</div>
+
+          <h3>誰かと一緒に作る</h3>
+
+          <p>
+            共同編集にも対応。
+            一緒に旅行する人と予定を作ることができます。
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section class="cta-section">
+
+      <div class="cta-inner">
+
+        <p class="section-eyebrow">START YOUR JOURNEY</p>
+
+        <h2>
+          あなたの次の旅を、<br>
+          ここから始めよう。
+        </h2>
+
+        <% if user_signed_in? %>
+
+          <%= link_to "マイページへ",
+                      mypage_path,
+                      class: "cta-button" %>
+
+        <% else %>
+
+          <%= link_to "新規登録して始める",
+                      new_user_registration_path,
+                      class: "cta-button" %>
+
+        <% end %>
+
+      </div>
+
+    </section>
+
+  </main>
+
 </div>
