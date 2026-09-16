@@ -1,0 +1,552 @@
+/* =========================================
+   Login Page
+   ========================================= */
+
+.login-page {
+  --login-main: #6f898e;
+  --login-main-dark: #5e777c;
+  --login-sub: #a08c72;
+  --login-bg: #f5f3ee;
+  --login-card: #ffffff;
+  --login-input: #fcfbf8;
+  --login-border: #ddd9d1;
+  --login-text: #30383b;
+  --login-muted: #7b8283;
+
+  min-height: calc(100vh - 70px);
+  box-sizing: border-box;
+  background: var(--login-bg);
+  color: var(--login-text);
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   Main
+   ========================================= */
+
+.login-page .login-main {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: calc(100vh - 70px);
+  padding: 60px 20px 80px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   Login Card
+   ========================================= */
+
+.login-page .login-card {
+  position: relative;
+  z-index: 2;
+
+  width: min(440px, 100%);
+  box-sizing: border-box;
+
+  padding: 45px 45px 40px;
+
+  background: var(--login-card);
+  border: 1px solid #e4e0d8;
+  border-radius: 8px;
+
+  box-shadow:
+    0 18px 45px rgba(54, 63, 63, 0.08);
+}
+
+
+/* =========================================
+   Header
+   ========================================= */
+
+.login-page .login-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+
+.login-page .login-eyebrow {
+  margin: 0 0 11px;
+
+  color: var(--login-sub);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1.4;
+}
+
+
+.login-page .login-header h1 {
+  margin: 0;
+
+  color: var(--login-text);
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+
+.login-page .login-description {
+  margin: 13px 0 0;
+
+  color: var(--login-muted);
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   Form
+   ========================================= */
+
+.login-page .login-form {
+  width: 100%;
+  margin: 0;
+}
+
+
+/* =========================================
+   Fields
+   ========================================= */
+
+.login-page .login-field {
+  margin-bottom: 21px;
+}
+
+
+.login-page .login-field label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #4e595b;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
+
+.login-page .login-field input[type="email"],
+.login-page .login-field input[type="password"] {
+  display: block;
+
+  width: 100%;
+  min-height: 47px;
+
+  box-sizing: border-box;
+
+  padding: 11px 13px;
+
+  border: 1px solid var(--login-border);
+  border-radius: 4px;
+
+  outline: none;
+
+  background: var(--login-input);
+  color: var(--login-text);
+
+  font-family: inherit;
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.login-page .login-field input[type="email"]::placeholder,
+.login-page .login-field input[type="password"]::placeholder {
+  color: #b0b2b0;
+  font-size: 12px;
+}
+
+
+.login-page .login-field input[type="email"]:focus,
+.login-page .login-field input[type="password"]:focus {
+  border-color: var(--login-main);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 3px rgba(111, 137, 142, 0.12);
+}
+
+
+/* =========================================
+   Remember Me
+   ========================================= */
+
+.login-page .login-remember {
+  display: flex;
+  align-items: center;
+
+  margin-top: -2px;
+  margin-bottom: 26px;
+
+  color: var(--login-muted);
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+.login-page .login-remember input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+
+  margin: 0 8px 0 0;
+
+  accent-color: var(--login-main);
+
+  cursor: pointer;
+}
+
+
+.login-page .login-remember label {
+  cursor: pointer;
+}
+
+
+/* =========================================
+   Submit Button
+   ========================================= */
+
+.login-page .login-actions {
+  margin-top: 5px;
+}
+
+
+.login-page .login-actions input[type="submit"] {
+  display: block;
+
+  width: 100%;
+  min-height: 49px;
+
+  padding: 12px 20px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--login-main);
+  border-radius: 4px;
+
+  background: var(--login-main);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.login-page .login-actions input[type="submit"]:hover {
+  background: var(--login-main-dark);
+  border-color: var(--login-main-dark);
+
+  box-shadow:
+    0 7px 18px rgba(94, 119, 124, 0.18);
+
+  transform: translateY(-2px);
+}
+
+
+.login-page .login-actions input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   Devise Links
+   ========================================= */
+
+.login-page .login-links {
+  margin-top: 28px;
+  padding-top: 23px;
+
+  border-top: 1px solid #ebe8e2;
+
+  text-align: center;
+}
+
+
+.login-page .login-links a {
+  display: inline-block;
+
+  margin: 4px 7px;
+
+  color: var(--login-main);
+
+  font-size: 11px;
+  line-height: 1.7;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+
+.login-page .login-links a:hover {
+  color: var(--login-main-dark);
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   Error / Alert
+   ========================================= */
+
+.login-page .alert {
+  box-sizing: border-box;
+
+  width: min(440px, calc(100% - 40px));
+
+  margin: 20px auto 0;
+  padding: 11px 14px;
+
+  border: 1px solid #e0caca;
+  border-radius: 4px;
+
+  background: #fbf5f4;
+  color: #7c5d5d;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   Decoration
+   ========================================= */
+
+.login-page .login-decoration {
+  position: absolute;
+
+  pointer-events: none;
+}
+
+
+/* Small circle */
+
+.login-page .login-decoration-one {
+  top: 18%;
+  left: 15%;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: var(--login-sub);
+
+  opacity: 0.55;
+}
+
+
+/* Large outlined circle */
+
+.login-page .login-decoration-two {
+  right: 13%;
+  bottom: 17%;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid #9db0ae;
+  border-radius: 50%;
+
+  opacity: 0.55;
+}
+
+
+/* =========================================
+   Tablet
+   ========================================= */
+
+@media (max-width: 800px) {
+
+  .login-page .login-decoration-one {
+    left: 8%;
+  }
+
+  .login-page .login-decoration-two {
+    right: 7%;
+  }
+
+}
+
+
+/* =========================================
+   Smartphone
+   ========================================= */
+
+@media (max-width: 560px) {
+
+  .login-page {
+    min-height: calc(100vh - 60px);
+  }
+
+
+  .login-page .login-main {
+    min-height: calc(100vh - 60px);
+
+    padding: 35px 12px 55px;
+  }
+
+
+  .login-page .login-card {
+    width: 100%;
+
+    padding: 34px 22px 30px;
+
+    border-radius: 7px;
+  }
+
+
+  .login-page .login-header {
+    margin-bottom: 27px;
+  }
+
+
+  .login-page .login-header h1 {
+    font-size: 29px;
+  }
+
+
+  .login-page .login-description {
+    font-size: 11px;
+  }
+
+
+  .login-page .login-field {
+    margin-bottom: 18px;
+  }
+
+
+  .login-page .login-field input[type="email"],
+  .login-page .login-field input[type="password"] {
+    min-height: 46px;
+
+    font-size: 14px;
+  }
+
+
+  .login-page .login-remember {
+    margin-bottom: 23px;
+  }
+
+
+  .login-page .login-actions input[type="submit"] {
+    min-height: 48px;
+  }
+
+
+  .login-page .login-links {
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+
+
+  .login-page .login-decoration-one {
+    top: 8%;
+    left: 4%;
+
+    width: 8px;
+    height: 8px;
+  }
+
+
+  .login-page .login-decoration-two {
+    right: 4%;
+    bottom: 7%;
+
+    width: 28px;
+    height: 28px;
+  }
+
+}
+
+
+/* =========================================
+   Small Smartphone
+   ========================================= */
+
+@media (max-width: 380px) {
+
+  .login-page .login-main {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+
+  .login-page .login-card {
+    padding: 29px 18px 27px;
+  }
+
+
+  .login-page .login-header h1 {
+    font-size: 27px;
+  }
+
+
+  .login-page .login-description {
+    font-size: 10px;
+  }
+
+}
+
+
+/* =========================================
+   Print
+   ========================================= */
+
+@media print {
+
+  .login-page {
+    min-height: auto;
+    background: #ffffff;
+    overflow: visible;
+  }
+
+
+  .login-page .login-decoration {
+    display: none;
+  }
+
+}

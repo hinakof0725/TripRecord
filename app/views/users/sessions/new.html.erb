@@ -1,26 +1,72 @@
-<h2>Log in</h2>
+<div class="login-page">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
-  </div>
+  <main class="login-main">
 
-  <div class="field">
-    <p><%= f.label :password %></p>
-    <p><%= f.password_field :password, autocomplete: "current-password" %></p>
-  </div>
+    <section class="login-card">
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <p><%= f.check_box :remember_me %></p>
-      <p><%= f.label :remember_me %></p>
-    </div>
-  <% end %>
+      <div class="login-header">
+        <p class="login-eyebrow">WELCOME BACK</p>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+        <h1>ログイン</h1>
 
-<%= render "users/shared/links" %>
+        <p class="login-description">
+          あなたの旅の記録に、もう一度戻りましょう。
+        </p>
+      </div>
+
+
+      <%= form_for(resource,
+                   as: resource_name,
+                   url: session_path(resource_name),
+                   html: { class: "login-form" }) do |f| %>
+
+        <div class="login-field">
+          <%= f.label :email, "メールアドレス" %>
+
+          <%= f.email_field :email,
+                            autofocus: true,
+                            autocomplete: "email",
+                            placeholder: "example@email.com" %>
+        </div>
+
+
+        <div class="login-field">
+          <%= f.label :password, "パスワード" %>
+
+          <%= f.password_field :password,
+                               autocomplete: "current-password",
+                               placeholder: "パスワードを入力してください" %>
+        </div>
+
+
+        <% if devise_mapping.rememberable? %>
+
+          <div class="login-remember">
+            <%= f.check_box :remember_me %>
+
+            <%= f.label :remember_me, "ログイン状態を保持する" %>
+          </div>
+
+        <% end %>
+
+
+        <div class="login-actions">
+          <%= f.submit "ログイン" %>
+        </div>
+
+      <% end %>
+
+
+      <div class="login-links">
+        <%= render "users/shared/links" %>
+      </div>
+
+    </section>
+
+
+    <div class="login-decoration login-decoration-one"></div>
+    <div class="login-decoration login-decoration-two"></div>
+
+  </main>
+
+</div>
