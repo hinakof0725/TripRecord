@@ -17,7 +17,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="<%= 'registration-page' if controller_name == 'registrations' && action_name == 'new' %>">
+
     <header class="site-header no-print">
       <%= link_to "Travel Blog", root_path, class: "logo" %>
 
@@ -36,6 +37,7 @@
       </nav>
     </header>
 
+
     <% if notice.present? %>
       <p class="notice no-print"><%= notice %></p>
     <% end %>
@@ -44,7 +46,8 @@
       <p class="alert no-print"><%= alert %></p>
     <% end %>
 
-    <%= yield %>
-  </body>
 
+    <%= yield %>
+
+  </body>
 </html>
