@@ -1,0 +1,780 @@
+/* ========================================
+   New Trip Page
+======================================== */
+
+.tweet-new-page {
+  --main: #6f898e;
+  --main-dark: #5d777c;
+  --accent: #a08c72;
+  --background: #f5f3ee;
+  --card: #ffffff;
+  --text: #30383b;
+  --muted: #7b8283;
+  --border: #ddd9d1;
+
+  min-height: 100vh;
+  padding: 70px 0 90px;
+  box-sizing: border-box;
+
+  background: var(--background);
+  color: var(--text);
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+}
+
+
+/* ========================================
+   Container
+======================================== */
+
+.tweet-new-container {
+  width: min(760px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   Page Header
+======================================== */
+
+.tweet-new-header {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.tweet-new-eyebrow {
+  margin: 0 0 12px;
+
+  color: var(--accent);
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
+.tweet-new-header h1 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+.tweet-new-description {
+  margin: 13px 0 0;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   Main Card
+======================================== */
+
+.tweet-new-card {
+  padding: 0 55px 55px;
+
+  border: 1px solid #e2ded6;
+  border-radius: 8px;
+
+  background: var(--card);
+
+  box-shadow: 0 16px 45px rgba(54, 63, 63, 0.07);
+}
+
+
+/* ========================================
+   Card Header
+======================================== */
+
+.tweet-new-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 -55px 42px;
+  padding: 26px 55px;
+
+  border-bottom: 1px solid #e8e4dc;
+}
+
+.tweet-new-step {
+  margin: 0 0 5px;
+
+  color: var(--accent);
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.tweet-new-card-header h2 {
+  margin: 0;
+
+  color: #455053;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.tweet-new-number {
+  color: #d5d0c7;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+}
+
+
+/* ========================================
+   Form Section
+======================================== */
+
+.tweet-form-section {
+  width: 100%;
+}
+
+.tweet-form-label-area {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 6px;
+}
+
+.tweet-form-label-area label,
+.tweet-form-main-label {
+  color: #465255;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tweet-form-required,
+.tweet-form-optional {
+  padding: 3px 6px;
+
+  border-radius: 2px;
+
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.tweet-form-required {
+  background: rgba(111, 137, 142, 0.12);
+  color: var(--main);
+}
+
+.tweet-form-optional {
+  background: #f0ede7;
+  color: #9a8b78;
+}
+
+.tweet-form-help {
+  margin: 0 0 15px;
+
+  color: #929696;
+
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   Divider
+======================================== */
+
+.tweet-form-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 32px 0;
+
+  background: #ebe8e2;
+}
+
+
+/* ========================================
+   Text Inputs
+======================================== */
+
+.tweet-text-input,
+.tweet-date-input,
+.tweet-textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--border);
+  border-radius: 4px;
+
+  outline: none;
+
+  background: #fcfbf8;
+  color: var(--text);
+
+  font-family: inherit;
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.tweet-text-input,
+.tweet-date-input {
+  min-height: 47px;
+  padding: 11px 13px;
+}
+
+.tweet-textarea {
+  min-height: 135px;
+  padding: 13px;
+
+  line-height: 1.8;
+
+  resize: vertical;
+}
+
+.tweet-text-input:focus,
+.tweet-date-input:focus,
+.tweet-textarea:focus {
+  border-color: var(--main);
+
+  background: #ffffff;
+
+  box-shadow: 0 0 0 3px rgba(111, 137, 142, 0.1);
+}
+
+.tweet-text-input::placeholder,
+.tweet-textarea::placeholder {
+  color: #b2b2ae;
+}
+
+
+/* ========================================
+   Date
+======================================== */
+
+.tweet-date-grid {
+  display: grid;
+  grid-template-columns: 1fr 36px 1fr;
+  align-items: end;
+}
+
+.tweet-date-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--accent);
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.tweet-date-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 47px;
+}
+
+.tweet-date-separator span {
+  display: block;
+
+  width: 13px;
+  height: 1px;
+
+  background: #bdb7ad;
+}
+
+
+/* ========================================
+   File Upload
+======================================== */
+
+.tweet-file-area {
+  padding: 22px;
+
+  border: 1px dashed #cfc9be;
+  border-radius: 5px;
+
+  background: #faf9f6;
+
+  text-align: center;
+}
+
+.tweet-file-input {
+  max-width: 100%;
+
+  color: #667174;
+
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.tweet-file-area p {
+  margin: 10px 0 0;
+
+  color: #a1a2a0;
+
+  font-size: 9px;
+}
+
+
+/* ========================================
+   Existing Thumbnail
+======================================== */
+
+.tweet-current-image {
+  margin-bottom: 18px;
+}
+
+.tweet-current-image p {
+  margin: 0 0 8px;
+
+  color: #818887;
+
+  font-size: 10px;
+}
+
+.tweet-thumbnail-preview {
+  display: block;
+
+  width: 100%;
+  max-height: 300px;
+
+  border-radius: 5px;
+
+  object-fit: cover;
+}
+
+
+/* ========================================
+   Submit
+======================================== */
+
+.tweet-form-submit-area {
+  margin-top: 45px;
+
+  padding-top: 28px;
+
+  border-top: 1px solid #e8e4dc;
+
+  text-align: center;
+}
+
+.tweet-form-submit-note {
+  margin: 0 0 13px;
+
+  color: #9a9d9c;
+
+  font-size: 9px;
+}
+
+.tweet-submit-button {
+  width: 100%;
+  min-height: 50px;
+
+  border: 1px solid var(--main);
+  border-radius: 4px;
+
+  background: var(--main);
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tweet-submit-button:hover {
+  background: var(--main-dark);
+  border-color: var(--main-dark);
+
+  transform: translateY(-2px);
+}
+
+
+/* ========================================
+   Back
+======================================== */
+
+.tweet-new-back {
+  margin-top: 25px;
+
+  text-align: center;
+}
+
+.tweet-new-back a {
+  color: #748487;
+
+  font-size: 11px;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.tweet-new-back a:hover {
+  color: var(--main-dark);
+}
+
+.tweet-new-back span {
+  margin-right: 5px;
+
+  color: var(--accent);
+}
+
+
+/* ========================================
+   Error
+======================================== */
+
+.tweet-form-errors {
+  margin-bottom: 30px;
+  padding: 17px 20px;
+
+  border: 1px solid #e0caca;
+  border-radius: 4px;
+
+  background: #fbf5f4;
+  color: #7c5d5d;
+}
+
+.tweet-form-error-title {
+  margin: 0 0 8px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tweet-form-errors ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.tweet-form-errors li {
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (max-width: 700px) {
+
+  .tweet-new-page {
+    padding-top: 50px;
+  }
+
+  .tweet-new-card {
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+
+  .tweet-new-card-header {
+    margin-right: -35px;
+    margin-left: -35px;
+
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+
+}
+
+
+/* ========================================
+   Smartphone
+======================================== */
+
+@media (max-width: 560px) {
+
+  .tweet-new-page {
+    padding: 38px 0 60px;
+  }
+
+  .tweet-new-container {
+    width: calc(100% - 24px);
+  }
+
+  .tweet-new-header {
+    margin-bottom: 27px;
+  }
+
+  .tweet-new-header h1 {
+    font-size: 29px;
+  }
+
+  .tweet-new-description {
+    font-size: 11px;
+  }
+
+  .tweet-new-card {
+    padding: 0 20px 30px;
+  }
+
+  .tweet-new-card-header {
+    margin: 0 -20px 30px;
+    padding: 21px 20px;
+  }
+
+  .tweet-new-number {
+    font-size: 26px;
+  }
+
+  .tweet-form-divider {
+    margin: 27px 0;
+  }
+
+  .tweet-date-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .tweet-date-separator {
+    display: none;
+  }
+
+  .tweet-file-area {
+    padding: 18px 12px;
+  }
+
+  .tweet-form-submit-area {
+    margin-top: 35px;
+  }
+
+}
+
+
+/* ========================================
+   Small Smartphone
+======================================== */
+
+@media (max-width: 380px) {
+
+  .tweet-new-header h1 {
+    font-size: 26px;
+  }
+
+  .tweet-new-card {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .tweet-new-card-header {
+    margin-right: -16px;
+    margin-left: -16px;
+
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+}
+
+/* ========================================
+   フォーム内の文字サイズ調整
+======================================== */
+
+/* 「旅行のサムネイル画像」「旅行タイトル」など */
+.tweet-form-label-area label,
+.tweet-form-main-label {
+  font-size: 15px;
+}
+
+/* 各項目の説明文 */
+.tweet-form-help {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* REQUIRED / OPTIONAL */
+.tweet-form-required,
+.tweet-form-optional {
+  font-size: 8px;
+  padding: 4px 7px;
+}
+
+/* START / END */
+.tweet-date-field label {
+  font-size: 10px;
+}
+
+/* 入力欄 */
+.tweet-text-input,
+.tweet-date-input,
+.tweet-textarea {
+  font-size: 14px;
+}
+
+/* ファイル選択 */
+.tweet-file-input {
+  font-size: 12px;
+}
+
+/* JPEG・PNG・WebP / 10MB以下 */
+.tweet-file-area p {
+  font-size: 10px;
+}
+
+/* カード上部「旅行の基本情報」 */
+.tweet-new-card-header h2 {
+  font-size: 17px;
+}
+
+/* TRIP INFORMATION */
+.tweet-new-step {
+  font-size: 9px;
+}
+
+/* ページタイトル下の説明 */
+.tweet-new-description {
+  font-size: 13px;
+}
+
+/* ========================================
+   PC画面でのサイズ調整
+======================================== */
+
+@media (min-width: 901px) {
+
+  /* ページ全体の横幅 */
+  .tweet-new-container {
+    width: min(880px, calc(100% - 80px));
+  }
+
+  /* ページ上部 */
+  .tweet-new-header {
+    margin-bottom: 42px;
+  }
+
+  .tweet-new-header h1 {
+    font-size: 40px;
+  }
+
+  .tweet-new-eyebrow {
+    font-size: 10px;
+  }
+
+  .tweet-new-description {
+    font-size: 14px;
+  }
+
+
+  /* 白いカード */
+  .tweet-new-card {
+    padding-left: 62px;
+    padding-right: 62px;
+    padding-bottom: 62px;
+  }
+
+  .tweet-new-card-header {
+    margin-left: -62px;
+    margin-right: -62px;
+    padding-left: 62px;
+    padding-right: 62px;
+  }
+
+
+  /* 旅行の基本情報 */
+  .tweet-new-card-header h2 {
+    font-size: 18px;
+  }
+
+  .tweet-new-step {
+    font-size: 10px;
+  }
+
+  .tweet-new-number {
+    font-size: 36px;
+  }
+
+
+  /* 項目名 */
+  .tweet-form-label-area label,
+  .tweet-form-main-label {
+    font-size: 16px;
+  }
+
+
+  /* 説明 */
+  .tweet-form-help {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+
+  /* REQUIRED / OPTIONAL */
+  .tweet-form-required,
+  .tweet-form-optional {
+    font-size: 9px;
+    padding: 4px 7px;
+  }
+
+
+  /* 入力欄 */
+  .tweet-text-input,
+  .tweet-date-input,
+  .tweet-textarea {
+    font-size: 15px;
+  }
+
+  .tweet-text-input,
+  .tweet-date-input {
+    min-height: 52px;
+    padding: 13px 15px;
+  }
+
+
+  /* START / END */
+  .tweet-date-field label {
+    font-size: 10px;
+  }
+
+
+  /* ファイル選択エリア */
+  .tweet-file-area {
+    padding: 27px;
+  }
+
+  .tweet-file-input {
+    font-size: 13px;
+  }
+
+  .tweet-file-area p {
+    font-size: 11px;
+  }
+
+
+  /* 各項目の間隔 */
+  .tweet-form-divider {
+    margin: 38px 0;
+  }
+}

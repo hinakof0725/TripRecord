@@ -1,7 +1,35 @@
-<div class="page-container">
-  <h1>新しい旅行を投稿する</h1>
+<div class="tweet-new-page">
+  <main class="tweet-new-container">
 
-  <%= render "form", tweet: @tweet %>
+    <header class="tweet-new-header">
+      <p class="tweet-new-eyebrow">NEW TRAVEL RECORD</p>
+      <h1>新しい旅行を投稿する</h1>
+      <p class="tweet-new-description">
+        旅の基本情報を入力して、新しい旅の記録を作成しましょう。
+      </p>
+    </header>
 
-  <%= link_to "マイページに戻る", mypage_path %>
+    <section class="tweet-new-card">
+
+      <div class="tweet-new-card-header">
+        <div>
+          <p class="tweet-new-step">TRIP INFORMATION</p>
+          <h2>旅行の基本情報</h2>
+        </div>
+
+        <span class="tweet-new-number">01</span>
+      </div>
+
+      <%= render "form", tweet: @tweet %>
+
+    </section>
+
+    <div class="tweet-new-back">
+      <%= link_to mypage_path do %>
+        <span>←</span>
+        マイページに戻る
+      <% end %>
+    </div>
+
+  </main>
 </div>

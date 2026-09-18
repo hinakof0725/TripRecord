@@ -42,16 +42,13 @@
 
                 <% if tweet.thumbnail.attached? %>
                   <%= image_tag tweet.thumbnail,
-                    width: 700,
-                    height: 450,
-                    class: "tweet-thumbnail",
-                    alt: "#{tweet.title}のサムネイル画像" %>
+                                class: "tweet-thumbnail",
+                                alt: "#{tweet.title}のサムネイル画像" %>
                 <% else %>
                   <div class="no-thumbnail">
                     <span>NO IMAGE</span>
                   </div>
                 <% end %>
-
 
                 <div class="thumbnail-overlay">
                   <div class="thumbnail-overlay-content">
@@ -75,7 +72,7 @@
 
               <% if tweet.about.present? %>
                 <p class="tweet-memo">
-                  <%= truncate(tweet.memo, length: 80) %>
+                  <%= truncate(tweet.about, length: 80) %>
                 </p>
               <% end %>
 

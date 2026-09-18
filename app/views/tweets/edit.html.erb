@@ -1,7 +1,46 @@
-<div class="page-container">
-  <h1>旅行情報を編集する</h1>
+<div class="tweet-new-page">
 
-  <%= render "form", tweet: @tweet %>
+  <main class="tweet-new-container">
 
-  <%= link_to "しおりに戻る", tweet_path(@tweet) %>
+    <header class="tweet-new-header">
+      <p class="tweet-new-eyebrow">EDIT TRAVEL RECORD</p>
+
+      <h1>旅行情報を編集する</h1>
+
+      <p class="tweet-new-description">
+        旅行の基本情報やサムネイル画像を変更できます。
+      </p>
+    </header>
+
+
+    <section class="tweet-new-card">
+
+      <div class="tweet-new-card-header">
+
+        <div>
+          <p class="tweet-new-step">TRIP INFORMATION</p>
+          <h2>旅行の基本情報</h2>
+        </div>
+
+        <span class="tweet-new-number">01</span>
+
+      </div>
+
+
+      <%= render "form", tweet: @tweet %>
+
+    </section>
+
+
+    <div class="tweet-new-back">
+
+      <%= link_to tweet_path(@tweet) do %>
+        <span>←</span>
+        しおりに戻る
+      <% end %>
+
+    </div>
+
+  </main>
+
 </div>

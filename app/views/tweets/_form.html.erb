@@ -1,6 +1,8 @@
 <% if tweet.errors.any? %>
-  <div class="error-messages">
-    <h2>入力内容を確認してください</h2>
+  <div class="tweet-form-errors">
+    <p class="tweet-form-error-title">
+      入力内容を確認してください
+    </p>
 
     <ul>
       <% tweet.errors.full_messages.each do |message| %>
@@ -10,53 +12,161 @@
   </div>
 <% end %>
 
-<%= form_with model: tweet do |f| %>
 
-    <div class="field image-field">
-        <%= f.label :thumbnail, "旅行のサムネイル画像" %>
+<%= form_with model: tweet, class: "tweet-new-form" do |f| %>
 
-        <% if tweet.thumbnail.attached? %>
-            <div class="current-image">
-            <p>現在の画像</p>
+  <!-- サムネイル -->
+  <div class="tweet-form-section">
 
-            <%= cl_image_tag tweet.thumbnail.key,
-                            width: 600,
-                            height: 400,
-                            crop: :fill,
-                            gravity: :auto,
-                            fetch_format: :auto,
-                            quality: :auto,
-                            class: "thumbnail-preview" %>
-            </div>
-    <% end %>
-
-    <%= f.file_field :thumbnail,
-                    accept: "image/jpeg,image/png,image/webp" %>
-
-        <p class="image-help">
-            JPEG・PNG・WebP、10MB以下。画像は未選択でも投稿できます。
-        </p>
+    <div class="tweet-form-label-area">
+      <%= f.label :thumbnail, "旅行のサムネイル画像" %>
+      <span class="tweet-form-optional">OPTIONAL</span>
     </div>
 
-  <div class="field">
-    <%= f.label :title, "旅行タイトル" %>
-    <%= f.text_field :title, placeholder: "京都2泊3日旅行" %>
+    <p class="tweet-form-help">
+      旅の思い出を象徴する写真を1枚選んでください。
+    </p>
+
+
+    <% if tweet.thumbnail.attached? %>
+      <div class="tweet-current-image">
+
+        <p>現在の画像</p>
+
+        <%= image_tag tweet.thumbnail,
+                      class: "tweet-thumbnail-preview",
+                      alt: "#{tweet.title}のサムネイル画像" %>
+
+      </div>
+    <% end %>
+
+
+    <div class="tweet-file-area">
+
+      <%= f.file_field :thumbnail,
+                       accept: "image/jpeg,image/png,image/webp",
+                       class: "tweet-file-input" %>
+
+      <p>
+        JPEG・PNG・WebP ／ 10MB以下
+      </p>
+
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= f.label :s_date, "旅行開始日" %>
-    <%= f.date_field :s_date %>
+
+  <div class="tweet-form-divider"></div>
+
+
+  <!-- タイトル -->
+  <div class="tweet-form-section">
+
+    <div class="tweet-form-label-area">
+      <%= f.label :title, "旅行タイトル" %>
+      <span class="tweet-form-required">REQUIRED</span>
+    </div>
+
+    <p class="tweet-form-help">
+      あとから見返したときに分かりやすいタイトルをつけましょう。
+    </p>
+
+    <%= f.text_field :title,
+                     placeholder: "例：京都2泊3日旅行",
+                     class: "tweet-text-input" %>
+
   </div>
 
-  <div class="field">
-    <%= f.label :f_date, "旅行終了日" %>
-    <%= f.date_field :f_date %>
+
+  <div class="tweet-form-divider"></div>
+
+
+  <!-- 日程 -->
+  <div class="tweet-form-section">
+
+    <div class="tweet-form-label-area">
+      <span class="tweet-form-main-label">旅行の日程</span>
+      <span class="tweet-form-required">REQUIRED</span>
+    </div>
+
+    <p class="tweet-form-help">
+      旅行の開始日と終了日を入力してください。
+    </p>
+
+
+    <div class="tweet-date-grid">
+
+      <div class="tweet-date-field">
+        <%= f.label :s_date, "START" %>
+
+        <%= f.date_field :s_date,
+                         class: "tweet-date-input" %>
+      </div>
+
+
+      <div class="tweet-date-separator">
+        <span></span>
+      </div>
+
+
+      <div class="tweet-date-field">
+        <%= f.label :f_date, "END" %>
+
+        <%= f.date_field :f_date,
+                         class: "tweet-date-input" %>
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= f.label :about, "旅行全体のメモ" %>
-    <%= f.text_area :about, rows: 5 %>
+
+  <div class="tweet-form-divider"></div>
+
+
+  <!-- メモ -->
+  <div class="tweet-form-section">
+
+    <div class="tweet-form-label-area">
+      <%= f.label :about, "旅行全体のメモ" %>
+      <span class="tweet-form-optional">OPTIONAL</span>
+    </div>
+
+    <p class="tweet-form-help">
+      行きたい場所や旅の目的など、自由に書いておけます。
+    </p>
+
+    <%= f.text_area :about,
+                    rows: 6,
+                    placeholder: "例：京都の紅葉を巡る2泊3日の旅行。清水寺と嵐山には必ず行きたい。",
+                    class: "tweet-textarea" %>
+
   </div>
 
-  <%= f.submit "保存する", class: "button" %>
+
+  <!-- 保存 -->
+  <div class="tweet-form-submit-area">
+
+    <% if tweet.persisted? %>
+
+      <p class="tweet-form-submit-note">
+        変更した内容を保存します。
+      </p>
+
+      <%= f.submit "変更を保存する",
+                   class: "tweet-submit-button" %>
+
+    <% else %>
+
+      <p class="tweet-form-submit-note">
+        入力した内容はあとから編集できます。
+      </p>
+
+      <%= f.submit "旅行を作成する",
+                   class: "tweet-submit-button" %>
+
+    <% end %>
+
+  </div>
+
 <% end %>
