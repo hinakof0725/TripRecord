@@ -28,7 +28,7 @@
     </p>
 
 
-    <% if tweet.thumbnail.attached? %>
+    <% if tweet.persisted? && tweet.thumbnail.attached? && tweet.thumbnail.blob.persisted? %>
       <div class="tweet-current-image">
 
         <p>現在の画像</p>
