@@ -2,8 +2,10 @@
 <html>
   <head>
     <title><%= content_for(:title) || "Triprecord" %></title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,39 +15,57 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="<%= 'registration-page' if controller_name == 'registrations' && action_name == 'new' %>">
+  <body class="<%= 
+    if controller_name == 'registrations' && action_name == 'new'
+      'registration-page'
+    elsif controller_name == 'sessions' && action_name == 'new'
+      'login-page'
+    end
+  %>">
 
-    <header class="site-header no-print">
-      <%= link_to "Travel Blog", root_path, class: "logo" %>
+    <% if user_signed_in? &&
+          !(controller_name == "home" && action_name == "top") &&
+          !(controller_name == "sessions" && action_name == "new") &&
+          !(controller_name == "registrations" && action_name == "new") %>
 
-      <nav>
-        <% if user_signed_in? %>
-          <%= link_to "マイページ", mypage_path %>
-          <%= link_to "旅行を投稿", new_tweet_path %>
+      <header class="site-header no-print">
+        <div class="site-header-inner">
 
-          <%= button_to "ログアウト",
-                        destroy_user_session_path,
-                        method: :delete %>
-        <% else %>
-          <%= link_to "新規登録", new_user_registration_path %>
-          <%= link_to "ログイン", new_user_session_path %>
-        <% end %>
-      </nav>
-    </header>
+          <%= link_to root_path, class: "site-logo" do %>
+            <span class="site-logo-main">Travel Blog</span>
+            <span class="site-logo-sub">TRAVEL &amp; MEMORIES</span>
+          <% end %>
 
+          <nav class="site-nav">
 
-    <% if notice.present? %>
-      <p class="notice no-print"><%= notice %></p>
+            <%= link_to mypage_path, class: "site-nav-link" do %>
+              <span class="site-nav-label">MY PAGE</span>
+              <span class="site-nav-text">マイページ</span>
+            <% end %>
+
+            <%= link_to new_tweet_path, class: "site-nav-link site-nav-create" do %>
+              <span class="site-nav-plus">＋</span>
+              <span class="site-nav-label">NEW TRIP</span>
+              <span class="site-nav-text">旅行を投稿</span>
+            <% end %>
+
+            <%= button_to destroy_user_session_path,
+                          method: :delete,
+                          class: "site-nav-logout" do %>
+              ログアウト
+            <% end %>
+
+          </nav>
+
+        </div>
+      </header>
+
     <% end %>
-
-    <% if alert.present? %>
-      <p class="alert no-print"><%= alert %></p>
-    <% end %>
-
 
     <%= yield %>
 

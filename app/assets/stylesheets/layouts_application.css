@@ -1,12 +1,23 @@
 /* =========================================
    Registration Page
-   ========================================= */
+========================================= */
 
 .registration-page {
+  --registration-main: #6f898e;
+  --registration-main-dark: #5e777c;
+  --registration-sub: #a08c72;
+  --registration-bg: #f5f3ee;
+  --registration-card: #ffffff;
+  --registration-border: #ddd9d1;
+  --registration-text: #30383b;
+  --registration-muted: #7b8283;
+
   min-height: 100vh;
   margin: 0;
-  background: #f5f3ee;
-  color: #30383b;
+
+  background: var(--registration-bg);
+  color: var(--registration-text);
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -19,123 +30,116 @@
 
 
 /* =========================================
-   Page Background
-   ========================================= */
+   Registration Container
+========================================= */
 
-.registration-page .site-header {
-  position: relative;
-  z-index: 10;
-}
-
-.registration-page .notice,
-.registration-page .alert {
-  position: relative;
-  z-index: 5;
-}
-
-
-/* =========================================
-   Devise Registration Area
-   ========================================= */
-
-.registration-page main,
-.registration-page .registration-container,
-.registration-page .form-container,
-.registration-page form {
+.registration-page .registration-container {
+  width: min(520px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 70px 0 80px;
   box-sizing: border-box;
 }
 
 
 /* =========================================
-   Devise Default Layout
-   ========================================= */
+   Header
+========================================= */
 
-/*
-  Deviseの新規登録画面では、
-  devise/registrations/new.html.erb 側の
-  .field / .actions / input / label などを
-  このページ専用で整える。
-*/
-
-.registration-page {
-  --registration-main: #6f898e;
-  --registration-main-dark: #5e777c;
-  --registration-sub: #a08c72;
-  --registration-bg: #f5f3ee;
-  --registration-card: #ffffff;
-  --registration-border: #ddd9d1;
-  --registration-text: #30383b;
-  --registration-muted: #7b8283;
+.registration-page .registration-header {
+  margin-bottom: 30px;
+  text-align: center;
 }
 
+.registration-page .registration-eyebrow {
+  margin: 0 0 12px;
 
-/* =========================================
-   Form Wrapper
-   ========================================= */
+  color: var(--registration-sub);
 
-.registration-page .devise-form,
-.registration-page .registration-form,
-.registration-page .new_user,
-.registration-page form[action*="registration"] {
-  width: min(460px, calc(100% - 40px));
-  margin: 55px auto 80px;
-  padding: 45px 45px 42px;
-  border: 1px solid #e4e0d8;
-  border-radius: 8px;
-  background: var(--registration-card);
-  box-shadow: 0 15px 40px rgba(54, 63, 63, 0.08);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1.4;
 }
 
+.registration-page .registration-header h1 {
+  margin: 0;
 
-/* =========================================
-   Heading
-   ========================================= */
-
-.registration-page h1 {
-  margin: 0 0 10px;
   color: var(--registration-text);
+
   font-family:
     Georgia,
     "Times New Roman",
     serif;
-  font-size: 34px;
+
+  font-size: 36px;
   font-weight: 500;
   letter-spacing: 0.04em;
   line-height: 1.3;
 }
 
-.registration-page h1::after {
+
+/* CREATE YOUR ACCOUNT */
+
+.registration-page .registration-header h1::after {
   content: "CREATE YOUR ACCOUNT";
+
   display: block;
-  margin-top: 10px;
+
+  margin-top: 11px;
+
   color: var(--registration-sub);
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
     "Hiragino Kaku Gothic ProN",
     "Yu Gothic",
     sans-serif;
-  font-size: 9px;
+
+  font-size: 8px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
+  line-height: 1.4;
 }
 
 
 /* =========================================
-   Intro Text
-   ========================================= */
+   Intro
+========================================= */
 
 .registration-page .registration-intro {
-  margin: 0 0 30px;
+  margin: 16px 0 0;
+
   color: var(--registration-muted);
-  font-size: 13px;
+
+  font-size: 12px;
   line-height: 1.8;
 }
 
 
 /* =========================================
+   Form Card
+========================================= */
+
+.registration-page .registration-form {
+  width: 100%;
+  margin: 0;
+  padding: 42px 44px 40px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e4e0d8;
+  border-radius: 8px;
+
+  background: var(--registration-card);
+
+  box-shadow: 0 15px 40px rgba(54, 63, 63, 0.08);
+}
+
+
+/* =========================================
    Field
-   ========================================= */
+========================================= */
 
 .registration-page .field {
   margin-bottom: 22px;
@@ -143,8 +147,11 @@
 
 .registration-page .field label {
   display: block;
+
   margin-bottom: 8px;
+
   color: #4e595b;
+
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -153,23 +160,32 @@
 
 /* =========================================
    Input
-   ========================================= */
+========================================= */
 
 .registration-page .field input[type="email"],
 .registration-page .field input[type="password"],
 .registration-page .field input[type="text"],
 .registration-page .field input[type="number"] {
   display: block;
+
   width: 100%;
   min-height: 46px;
+
   padding: 11px 13px;
+
+  box-sizing: border-box;
+
   border: 1px solid var(--registration-border);
   border-radius: 4px;
+
   outline: none;
+
   background: #fcfbf8;
   color: var(--registration-text);
+
   font-family: inherit;
   font-size: 14px;
+
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease,
@@ -181,19 +197,24 @@
 .registration-page .field input[type="text"]:focus,
 .registration-page .field input[type="number"]:focus {
   border-color: var(--registration-main);
+
   background: #ffffff;
+
   box-shadow: 0 0 0 3px rgba(111, 137, 142, 0.12);
 }
 
 
 /* =========================================
    Password Hint
-   ========================================= */
+========================================= */
 
 .registration-page .field em {
   display: block;
-  margin-top: 6px;
+
+  margin: -2px 0 8px;
+
   color: #9a9e9e;
+
   font-size: 10px;
   font-style: normal;
   line-height: 1.6;
@@ -201,24 +222,8 @@
 
 
 /* =========================================
-   Remember / Checkbox
-   ========================================= */
-
-.registration-page .field input[type="checkbox"] {
-  margin-right: 7px;
-  accent-color: var(--registration-main);
-}
-
-.registration-page .field label input[type="checkbox"] {
-  display: inline-block;
-  width: auto;
-  min-height: auto;
-}
-
-
-/* =========================================
-   Submit Area
-   ========================================= */
+   Submit
+========================================= */
 
 .registration-page .actions {
   margin-top: 28px;
@@ -226,18 +231,27 @@
 
 .registration-page .actions input[type="submit"] {
   display: block;
+
   width: 100%;
   min-height: 48px;
+
   padding: 12px 20px;
+
+  box-sizing: border-box;
+
   border: 1px solid var(--registration-main);
   border-radius: 4px;
+
   background: var(--registration-main);
   color: #ffffff;
+
   font-family: inherit;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.04em;
+
   cursor: pointer;
+
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
@@ -247,26 +261,68 @@
 .registration-page .actions input[type="submit"]:hover {
   background: var(--registration-main-dark);
   border-color: var(--registration-main-dark);
+
   transform: translateY(-2px);
 }
 
 
 /* =========================================
+   Login Link
+========================================= */
+
+.registration-page .devise-links {
+  margin-top: 27px;
+
+  text-align: center;
+}
+
+.registration-page .devise-links p {
+  margin: 0 0 8px;
+
+  color: #596568;
+
+  font-size: 12px;
+}
+
+.registration-page .devise-links a {
+  display: inline-block;
+
+  color: var(--registration-main);
+
+  font-size: 12px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.registration-page .devise-links a:hover {
+  color: var(--registration-main-dark);
+  text-decoration: underline;
+}
+
+
+/* =========================================
    Error Messages
-   ========================================= */
+========================================= */
 
 .registration-page .error_explanation {
   margin-bottom: 25px;
   padding: 15px 17px;
+
   border: 1px solid #e0caca;
   border-radius: 4px;
+
   background: #fbf5f4;
   color: #7c5d5d;
 }
 
 .registration-page .error_explanation h2 {
   margin: 0 0 8px;
+
   color: #765656;
+
   font-size: 13px;
   font-weight: 700;
 }
@@ -283,104 +339,61 @@
 
 
 /* =========================================
-   Devise Links
-   ========================================= */
-
-.registration-page a {
-  color: var(--registration-main);
-  transition: color 0.2s ease;
-}
-
-.registration-page a:hover {
-  color: var(--registration-main-dark);
-}
-
-.registration-page .links,
-.registration-page .devise-links {
-  width: min(460px, calc(100% - 40px));
-  margin: -55px auto 70px;
-  text-align: center;
-}
-
-.registration-page .links a,
-.registration-page .devise-links a {
-  display: inline-block;
-  margin: 5px 8px;
-  font-size: 12px;
-  text-decoration: none;
-}
-
-
-/* =========================================
-   Registration Decoration
-   ========================================= */
+   Decoration
+========================================= */
 
 .registration-page::before {
   content: "";
+
   position: fixed;
+
   top: 110px;
   left: 7%;
+
   width: 10px;
   height: 10px;
+
   border-radius: 50%;
-  background: #a08c72;
+
+  background: var(--registration-sub);
+
   opacity: 0.6;
+
   pointer-events: none;
 }
 
 .registration-page::after {
   content: "";
+
   position: fixed;
+
   right: 8%;
   bottom: 13%;
+
   width: 30px;
   height: 30px;
+
   border: 1px solid #9db0ae;
   border-radius: 50%;
+
   opacity: 0.7;
+
   pointer-events: none;
 }
 
 
 /* =========================================
-   Notice / Alert
-   ========================================= */
-
-.registration-page .notice,
-.registration-page .alert {
-  width: min(460px, calc(100% - 40px));
-  margin: 25px auto -25px;
-  padding: 11px 14px;
-  border-radius: 4px;
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-.registration-page .notice {
-  border: 1px solid #cedbd7;
-  background: #f1f6f4;
-  color: #5d7773;
-}
-
-.registration-page .alert {
-  border: 1px solid #e0caca;
-  background: #fbf5f4;
-  color: #7c5d5d;
-}
-
-
-/* =========================================
    Tablet
-   ========================================= */
+========================================= */
 
 @media (max-width: 700px) {
 
-  .registration-page .devise-form,
-  .registration-page .registration-form,
-  .registration-page .new_user,
-  .registration-page form[action*="registration"] {
-    margin-top: 40px;
-    margin-bottom: 60px;
+  .registration-page .registration-container {
+    padding-top: 55px;
+    padding-bottom: 65px;
+  }
+
+  .registration-page .registration-form {
     padding: 38px 32px 35px;
   }
 
@@ -389,22 +402,32 @@
 
 /* =========================================
    Smartphone
-   ========================================= */
+========================================= */
 
 @media (max-width: 560px) {
 
-  .registration-page h1 {
-    font-size: 29px;
+  .registration-page .registration-container {
+    width: calc(100% - 24px);
+
+    padding-top: 40px;
+    padding-bottom: 50px;
   }
 
-  .registration-page .devise-form,
-  .registration-page .registration-form,
-  .registration-page .new_user,
-  .registration-page form[action*="registration"] {
-    width: calc(100% - 24px);
-    margin-top: 30px;
-    margin-bottom: 50px;
+  .registration-page .registration-header {
+    margin-bottom: 25px;
+  }
+
+  .registration-page .registration-header h1 {
+    font-size: 30px;
+  }
+
+  .registration-page .registration-intro {
+    font-size: 11px;
+  }
+
+  .registration-page .registration-form {
     padding: 32px 22px 30px;
+
     border-radius: 7px;
   }
 
@@ -417,13 +440,8 @@
   .registration-page .field input[type="text"],
   .registration-page .field input[type="number"] {
     min-height: 45px;
-    font-size: 14px;
-  }
 
-  .registration-page .links,
-  .registration-page .devise-links {
-    width: calc(100% - 24px);
-    margin: -30px auto 50px;
+    font-size: 14px;
   }
 
   .registration-page::before {
@@ -441,19 +459,19 @@
 
 /* =========================================
    Small Smartphone
-   ========================================= */
+========================================= */
 
 @media (max-width: 380px) {
 
-  .registration-page h1 {
-    font-size: 26px;
+  .registration-page .registration-container {
+    width: calc(100% - 18px);
   }
 
-  .registration-page .devise-form,
-  .registration-page .registration-form,
-  .registration-page .new_user,
-  .registration-page form[action*="registration"] {
-    width: calc(100% - 18px);
+  .registration-page .registration-header h1 {
+    font-size: 27px;
+  }
+
+  .registration-page .registration-form {
     padding: 28px 18px;
   }
 
@@ -462,7 +480,7 @@
 
 /* =========================================
    Print
-   ========================================= */
+========================================= */
 
 @media print {
 

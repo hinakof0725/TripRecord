@@ -13,3 +13,284 @@
  *= require_tree .
  *= require_self
  */
+
+
+/* ========================================
+   共通ヘッダー
+======================================== */
+
+.site-header {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f5f3ee;
+  border-bottom: 1px solid #dedbd4;
+}
+
+.site-header-inner {
+  width: min(1180px, calc(100% - 48px));
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   ロゴ
+======================================== */
+
+.site-logo {
+  display: flex;
+  flex-direction: column;
+  color: #30383b;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.site-logo:hover {
+  color: #30383b;
+  opacity: 0.72;
+}
+
+.site-logo-main {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+.site-logo-sub {
+  margin-top: 4px;
+  color: #a08c72;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    sans-serif;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  line-height: 1;
+}
+
+
+/* ========================================
+   ナビゲーション
+======================================== */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-nav-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 42px;
+  padding: 4px 13px;
+  box-sizing: border-box;
+  color: #596568;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.site-nav-link:hover {
+  color: #6f898e;
+  background: rgba(111, 137, 142, 0.07);
+}
+
+.site-nav-label {
+  margin-bottom: 3px;
+  color: #a08c72;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1;
+}
+
+.site-nav-text {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+
+/* ========================================
+   新規旅行
+======================================== */
+
+.site-nav-create {
+  padding-left: 16px;
+  padding-right: 16px;
+  border-left: 1px solid #ddd9d1;
+}
+
+.site-nav-plus {
+  position: absolute;
+  top: 8px;
+  left: 3px;
+  color: #6f898e;
+  font-size: 13px;
+  line-height: 1;
+}
+
+
+/* ========================================
+   ログアウト
+======================================== */
+
+.site-nav-logout {
+  min-height: 36px;
+  margin-left: 7px;
+  padding: 0 13px;
+  border: none;
+  border-left: 1px solid #ddd9d1;
+  background: transparent;
+  color: #8a8f8f;
+  font-family: inherit;
+  font-size: 10px;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.site-nav-logout:hover {
+  color: #6f898e;
+  background: rgba(111, 137, 142, 0.06);
+}
+
+
+/* ========================================
+   タブレット・小さめPC
+======================================== */
+
+@media (max-width: 700px) {
+
+  .site-header-inner {
+    width: calc(100% - 32px);
+    min-height: 68px;
+  }
+
+  .site-logo-main {
+    font-size: 19px;
+  }
+
+  .site-logo-sub {
+    font-size: 6px;
+  }
+
+  .site-nav {
+    gap: 2px;
+  }
+
+  .site-nav-link {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .site-nav-create {
+    padding-left: 13px;
+    padding-right: 9px;
+  }
+
+  .site-nav-logout {
+    margin-left: 3px;
+    padding-left: 9px;
+    padding-right: 5px;
+  }
+}
+
+
+/* ========================================
+   スマホ
+======================================== */
+
+@media (max-width: 560px) {
+
+  .site-header-inner {
+    width: calc(100% - 24px);
+    min-height: 62px;
+  }
+
+  .site-logo-main {
+    font-size: 17px;
+  }
+
+  .site-logo-sub {
+    display: none;
+  }
+
+  .site-nav-link {
+    min-height: 36px;
+    padding: 3px 7px;
+  }
+
+  .site-nav-label {
+    display: none;
+  }
+
+  .site-nav-text {
+    font-size: 10px;
+  }
+
+  .site-nav-create {
+    padding-left: 14px;
+    padding-right: 7px;
+    border-left: 1px solid #ddd9d1;
+  }
+
+  .site-nav-plus {
+    top: 9px;
+    left: 2px;
+    font-size: 11px;
+  }
+
+  .site-nav-logout {
+    min-height: 32px;
+    margin-left: 2px;
+    padding: 0 5px;
+    font-size: 9px;
+  }
+}
+
+
+/* ========================================
+   かなり小さいスマホ
+======================================== */
+
+@media (max-width: 380px) {
+
+  .site-header-inner {
+    width: calc(100% - 16px);
+  }
+
+  .site-logo-main {
+    font-size: 15px;
+  }
+
+  .site-nav-link {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .site-nav-create {
+    padding-left: 11px;
+    padding-right: 5px;
+  }
+
+  .site-nav-logout {
+    padding-left: 4px;
+    padding-right: 3px;
+    font-size: 8px;
+  }
+}
